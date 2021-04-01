@@ -1,13 +1,9 @@
-
-body {
-    font-size: 1.125 rem;
-    background: #1E1F23;
-    color: white;
-    height: 100%;
-    position: absolute;
-}
-
 /* Typography */
+
+.left-pane {
+    height: 100%;
+    color: white;
+}
 
 .title {
     position: relative;

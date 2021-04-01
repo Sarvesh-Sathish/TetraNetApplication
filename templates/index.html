@@ -2,19 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Project TetraNet</title>
+
+    <style>
+
+        body {
+            overflow: hidden;
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            padding-top: 0px;
+            align-items: flex-start;
+            flex-direction: row;
+            background-color: #2e2e31;
+        }
+
+        .left-pane-section {
+            height: 100vh;
+            width: 20vh;
+            border-radius: 1px;
+            position: relative;
+            padding: 2em;
+            display: flex;
+            align-items: center;
+            margin-left: -10px;
+            margin-top: -10px;
+            background-color: #414246;
+        }
+
+        .entire-window-container {
+
+        }
+
+        .navigation-text {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        a:hover {
+            color: lightblue;
+        }
+
+    </style>
+
+
 </head>
 <body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8  offset-lg-2">
-                <h3 class="mt-5">Live Streaming</h3>
-                <img src="video_feed" width="100%" alt="NO VIDEO FOUND" />
-
+    <div class="entire-window-container">
+        <div class="left-pane-section">
+            <div class="navigation-tile">
+                <a href="another_page.html" class="navigation-text" id="o">Another Page</a>
             </div>
         </div>
     </div>
+
+<!--    <div class="video_holder" id="video_container" align="center">-->
+<!--        <img src="video_feed" width="100%" alt="NO VIDEO FOUND" />-->
+<!--    </div>-->
+
 
 </body>
 </html>
