@@ -7,33 +7,86 @@
 
     <style>
 
+
         body {
             overflow: hidden;
             position: absolute;
             height: 100vh;
             width: 100vw;
-            padding-top: 0px;
             align-items: flex-start;
             flex-direction: row;
             background-color: #2e2e31;
         }
 
-        .left-pane-section {
-            height: 100vh;
-            width: 20vh;
-            border-radius: 1px;
-            position: relative;
-            padding: 2em;
-            display: flex;
-            align-items: center;
-            margin-left: -10px;
-            margin-top: -10px;
-            background-color: #414246;
+        h1 {
+            font-family: roboto, sans-serif;
+            font-size: 1em;
         }
 
         .entire-window-container {
-
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            margin-top: -10px;
+            margin-left: -10px;
+            display: flex;
+            flex-direction: row;
         }
+
+        .pane-container {
+            display: flex;
+            height: 100%;
+            width:20vh;
+            align-content: center;
+            padding: 1.5em;
+        }
+
+        .left-pane-section {
+            height: 91.5vh;
+            max-width: 20vw;
+            width: 15vw;
+            margin: 0 auto;
+            border-radius: 20px;
+            position: relative;
+            padding: 2em;
+            display: flex;
+            flex-direction: column;
+            background-color: #414246;
+        }
+
+
+
+        .dash-separator {
+            border-top: 2px solid;
+            border-top-color: lightblue;
+            border-radius: 3px;
+        }
+
+        .navigation-tile {
+            margin-top: 1.5em;
+            position: relative;
+            padding: 0.5em;
+            text-align: center;
+            border-color: #3498db;
+            color: #2e2e31;
+            box-shadow: 0 0 40px 40px #2e2e31 inset, 0 0 0 0 #2e2e31;
+            -webkit-transition: all 150ms ease-in-out;
+            transition: all 150ms ease-in-out;
+            border-radius: 5px;
+        }
+        .navigation-tile:hover {
+            box-shadow: 0 0 10px 0 #2e2e31 inset, 0 0 10px 4px #ff7f50;
+        }
+
+        #logo-container {
+            border: 2px solid white;
+            height: 10vh;
+        }
+        #logo-title {
+            font-family: roboto,sans-serif;
+        }
+
+
 
         .navigation-text {
             color: white;
@@ -50,9 +103,20 @@
 </head>
 <body>
     <div class="entire-window-container">
-        <div class="left-pane-section">
-            <div class="navigation-tile">
-                <a href="another_page.html" class="navigation-text" id="o">Another Page</a>
+        <div class="pane-container">
+            <div class="left-pane-section">
+                <div id="logo-container">
+                    <h1 id="logo-title">Project TetraNet</h1>
+                </div>
+                <div class="navigation-tile" href="another_page.html">
+                    <h1 class="navigation-text">Dashboard</h1>
+                </div>
+                <div class="navigation-tile" href="another_page.html">
+                    <h1 class="navigation-text">Analyze</h1>
+                </div>
+                <div class="navigation-tile">
+                    <h1 class="navigation-text">History</h1>
+                </div>
             </div>
         </div>
     </div>
