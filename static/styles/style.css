@@ -85,7 +85,9 @@ h1 {
     flex-direction: column;
 }
 
+.maps-container {
 
+}
 
 .navigation-text {
     color: white;
@@ -95,9 +97,13 @@ h1 {
 a:hover {
     color: lightblue;
 }
+.video-holder {
+    flex: 1;
+}
 
 #map {
-    height: 10em;
+    flex: 1;
+    height: 100em;
     width: 10em;
     background-color: white;
 }
