@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, request, redirect
+from flask import Flask, render_template, Response, request, redirect, send_file
 import cv2
 import os
 from PIL import Image, ImageOps
@@ -7,6 +7,7 @@ import numpy as np
 from azure_get_unet import get_mask
 import requests
 import azure_get_atmosphere
+import firespread
 
 
 
@@ -16,8 +17,11 @@ app.config['IMAGE_UPLOADS'] = 'images'
 print(os.listdir('uploads/images'))
 response = requests.get('http://67515655-f00a-44a0-a447-22a76351d991.eastus.azurecontainer.io/score')
 print('response', response.json())
-print(azure_get_atmosphere.run_ANN())
 
+# arr = firespread.img_dir_to_arr('uploads/images/test.png')
+# print(arr)
+# image = Image.fromarray(arr)
+# image.save('uploads/images/lets-see.png')
 
 
 def gen_frames():
@@ -56,6 +60,10 @@ def another_page():
             print(type(image), 'image saved')
 
     return render_template('another_page.html')
+
+@app.route('/show_prediction')
+def show_prediction():
+    return send_file('/uploads/images/lets-see.png', mimetype='image/png')
 
 
 if __name__ == '__main__':
