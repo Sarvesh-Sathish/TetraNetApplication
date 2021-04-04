@@ -2,44 +2,182 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css')}}" align="center">
+    <script src="{{ url_for('static',filename='javascript/initMap.js') }}"></script>
     <title>Project TetraNet</title>
 
     <style>
-        .pp-time {
+
+        a {
+            text-decoration: none;
+        }
+
+        .maps-container {
             background-color: white;
-            height: 95vh;
-            width: 20vh;
-            border-radius: 1px;
+            height: 20vh;
+        }
+
+        .video-holder {
+            flex: 1;
+        }
+
+        #map {
+            margin: 10px;
+            flex-grow: 1;
+          height: 400px;
+          /* The height is 400 pixels */
+          width: 100%;
+          /* The width is the width of the web page */
+            border-radius: 5px;
+        }
+
+        .right-pane {
+            display: flex;
+            padding: 3em;
+        }
+
+        #logo {
             position: relative;
+            flex: 1;
+            height: 5em;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        body {
-            overflow: hidden;
-            position: absolute;
-            height: 100vh;
-            width: 100vw;
+        .logo-title {
+            font-family: roboto,sans-serif;
+            font-size: 1em;
+            color: white;
+            text-align: center;
         }
 
-        #video_container {
-            position:relative;
+        .dashboard-title {
+            font-size: 1em;
+            color: white;
+            display: flex;
+            flex-direction: row;
         }
+
+        #test {
+            align-self: flex-end;
+            flex-grow: 1;
+            text-align: end;
+            color: lawngreen;
+        }
+
+        #dashboard-text {
+            font-size: 1.5em;
+        }
+        .right-pane-content-container-analyze{
+            color: #414246;
+            width: auto;
+            height: 80vh;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #video_from_device{
+            border-radius: 5px;
+            elevation: above;
+            max-width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-holder {
+            background-color: #414246;
+            height: auto;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .status-box {
+            flex-grow: 1;
+            width: 20vw;
+            height: 20vh;
+            background-color: #414246;
+            margin: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            margin: 0.2em;
+            font-family: roboto, sans-serif;
+            font-size: 1em;
+        }
+
+        .status-box {
+            padding: 0.5em;
+            height: 80vh;
+        }
+
+        .files-list {
+            flex-grow: 1;
+            background-color: #3498db;
+        }
+
+        .visualization-container {
+            flex-grow: 3;
+            background-color: coral;
+        }
+
+
+
+
+
 
     </style>
 
-
 </head>
 <body>
-    <section class="pp-time">
-        <div class="left-pane-menu" id="video_container" align="center">
-            <img src="video_feed" width="100%" alt="NO VIDEO FOUND" />
+    <div class="entire-window-container">
+        <div class="pane-container">
+            <div class="left-pane-section">
+                <div class="logo-container">
+                    <img src="{{url_for('static', filename='logothinglol.png')}}" align="middle" id="logo"/>
+                    <h1 class="logo-title">Project TetraNet</h1>
+                </div>
+                <div class="navigation-tile">
+                    <a href="/">
+                        <h1 class="navigation-text">Dashboard</h1>
+                    </a>
+                </div>
+                <div class="navigation-tile" href="another_page.html">
+                    <a href="another_page.html">
+                        <h1 class="navigation-text">Analyze</h1>
+                    </a>
+                </div>
+                <div class="navigation-tile">
+                    <h1 class="navigation-text">History</h1>
+                </div>
+            </div>
         </div>
-        <div class="navigation-tile">
+        <div class="right-pane">
+            <div class="dashboard-title">
+                <h1 id="dashboard-text">Analyze</h1>
+            </div>
+            <div class="right-pane-content-container-analyze">
+                <div class="files-list">
 
+                </div>
+
+                <div class="visualization-container">
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+            </div>
         </div>
-    </section>
-
-
 
 
 </body>
