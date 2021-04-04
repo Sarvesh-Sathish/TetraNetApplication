@@ -5,9 +5,10 @@ from keras.models import Model
 from keras.models import load_model
 from numpy import asarray
 from PIL import Image, ImageOps
+import azure_get_unet as azure_predict
+# Since we are using the Azure API, there is not need to save the model to the local filesystem
 
-
-model = load_model("static/model/trees-v1.h5")
+# model = load_model("/static/model/trees-v1.h5")
 
 # model prediction returns array of prediction
 # input is a numpy array

@@ -4,7 +4,7 @@ import numpy as np
 
 
 def get_mask(image_dir, name='mask_frame', testing=False):
-
+    # Here, we will access the Azure API and get the numpy mask for the prediction
     image_dir = ''
 
     if (not testing):
@@ -23,13 +23,14 @@ def get_mask(image_dir, name='mask_frame', testing=False):
     new_img = response.json()
     new_img = np.array(new_img, dtype='uint8')
     new_img = new_img * 255
-    new_img = Image.fromarray(new_img)
 
+    return new_img
+
+
+def save_image(arr, name='default'):
+    # Save the file to the uploads folder for future use
+    new_img = Image.fromarray(arr)
     saved_file_dir = 'uploads/images/' + name + '.png'
-
     new_img.save(saved_file_dir)
 
-    return saved_file_dir, original_size
-
-
-
+    return saved_file_dir

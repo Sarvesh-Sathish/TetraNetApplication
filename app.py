@@ -6,9 +6,8 @@ from numpy import asarray
 import numpy as np
 from azure_get_unet import get_mask
 import requests
+import azure_get_atmosphere
 
-from keras.models import load_model
-model = load_model("static/model/trees-v1.h5")
 
 
 video = cv2.VideoCapture(0)
@@ -17,6 +16,7 @@ app.config['IMAGE_UPLOADS'] = 'images'
 print(os.listdir('uploads/images'))
 response = requests.get('http://67515655-f00a-44a0-a447-22a76351d991.eastus.azurecontainer.io/score')
 print('response', response.json())
+print(azure_get_atmosphere.run_ANN())
 
 
 
