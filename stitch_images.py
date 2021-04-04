@@ -7,7 +7,7 @@ from numpy import asarray
 from PIL import Image, ImageOps
 
 
-# model = load_model("static/model/trees-v1.h5")
+model = load_model("static/model/trees-v1.h5")
 
 # model prediction returns array of prediction
 # input is a numpy array
