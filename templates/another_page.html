@@ -71,7 +71,7 @@
         }
         .right-pane-content-container-analyze{
             color: #414246;
-            width: auto;
+            width: 60vw;
             height: 80vh;
             display: flex;
             flex-direction: row;
@@ -118,11 +118,13 @@
         .files-list {
             flex-grow: 1;
             background-color: #3498db;
+            flex-direction: column;
         }
 
         .visualization-container {
-            flex-grow: 3;
+            flex-grow: 100;
             background-color: coral;
+            width: 10vw;
         }
 
 
@@ -162,13 +164,28 @@
             </div>
             <div class="right-pane-content-container-analyze">
                 <div class="files-list">
+                    <form  method="POST" enctype="multipart/form-data">
 
+                    <div class="form-group">
+                      <label>Select image</label>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="image" id="image">
+                        <label class="custom-file-label" for="image">Select image...</label>
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Upload</button>
+
+                  </form>
                 </div>
 
                 <div class="visualization-container">
-
-
                 </div>
+
+
+                <div class="visualization-container">
+                </div>
+
 
 
 
