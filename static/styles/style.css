@@ -5,123 +5,13 @@ body {
     width: 100vw;
     align-items: flex-start;
     flex-direction: row;
-    background-color: #2e2e31;
+    background-color: #000;
 }
 
 h1 {
     font-family: roboto, sans-serif;
     font-size: 1em;
 }
-
-a {
-            text-decoration: none;
-        }
-
-        .maps-container {
-            background-color: white;
-            height: 20vh;
-        }
-
-        .video-holder {
-            flex: 1;
-        }
-
-        #map {
-            flex-grow: 1;
-          height: 400px;
-          /* The height is 400 pixels */
-          width: 100%;
-          /* The width is the width of the web page */
-            border-radius: 5px;
-        }
-
-        .right-pane {
-            display: flex;
-            padding: 3em;
-        }
-
-        #logo {
-            position: relative;
-            flex: 1;
-            height: 5em;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .logo-title {
-            font-family: roboto,sans-serif;
-            font-size: 1em;
-            color: white;
-            text-align: center;
-        }
-
-        .dashboard-title {
-            font-size: 1em;
-            color: white;
-            display: flex;
-            flex-direction: row;
-        }
-
-        #test {
-            align-self: flex-end;
-            flex-grow: 1;
-            text-align: end;
-            color: lawngreen;
-        }
-
-        #dashboard-text {
-            font-size: 1.5em;
-        }
-        .right-pane-content-container{
-            color: #414246;
-            width: auto;
-            height: auto;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        #video_from_device{
-            border-radius: 5px;
-            elevation: above;
-            max-width: 100%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .video-holder {
-            background-color: #414246;
-            height: auto;
-            margin: 10px;
-            border-radius: 5px;
-        }
-
-        .status-box {
-            flex-grow: 1;
-            width: 20vw;
-            height: 20vh;
-            background-color: #414246;
-            margin: 10px;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        h2 {
-            margin: 0.2em;
-            font-family: roboto, sans-serif;
-            font-size: 1em;
-        }
-
-        .status-box {
-            padding: 0.5em;
-        }
-
-
-
 
 .entire-window-container {
     height: 100vh;
@@ -193,7 +83,6 @@ a {
     height: 10vh;
     align-items: flex-end;
     align-content: center;
-    flex-direction: column;
 }
 
 
@@ -210,4 +99,3 @@ a {
 a:hover {
     color: lightblue;
 }
-
