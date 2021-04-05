@@ -16,15 +16,18 @@ def run_ANN():
         "data":
             [
                 {
-                    'Column3': "example_value",
+                    'Column1': "0",
+                    'Column2': "0",
+                    'Column3': "0",
+                    'Column4': "0",
                     'Column5': "0",
                     'Column6': "0",
                     'Column7': "0",
-                    'Column8': "0",
-                    'Column9': "0",
-                    'Column10': "0",
-                    'Column11': "0",
-                    'Column12': "0",
+                    'Column8': "1.75",
+                    'Column9': "4.61",
+                    'Column10': "6.83",
+                    'Column11': "8.71",
+                    'Column12': "10.13",
                 },
             ],
     }
