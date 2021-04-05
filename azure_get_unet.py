@@ -3,22 +3,20 @@ from PIL import Image
 import numpy as np
 
 
-def get_mask(image_dir, name='mask_frame', testing=False):
+def get_mask(image_dir,testing=False):
     # Here, we will access the Azure API and get the numpy mask for the prediction
-    image_dir = ''
-
-    if (not testing):
-        image_dir = 'uploads/images/test.png'
+    image_dir_local = ''
+    if (testing):
+        image_dir_local = 'uploads/images/test.png'
     else:
-        image_dir = 'image_dir'
+        image_dir_local = image_dir
 
-    img = Image.open(image_dir)
-    original_size = img.size
-
-    files = {'image': open(image_dir, 'rb').read()}
-
-    requests.get('http://67515655-f00a-44a0-a447-22a76351d991.eastus.azurecontainer.io/score')
-    response = requests.post('http://67515655-f00a-44a0-a447-22a76351d991.eastus.azurecontainer.io/score', files=files)
+    print(image_dir_local, 'is image dir')
+    img = Image.open(image_dir_local)
+    files = {'image': open(image_dir_local, 'rb').read()}
+    print(files)
+    response = requests.post('http://67515655-f00a-44a0-a447-22a76351d991.eastus.azurecontainer.io/score',
+                             files=files)
 
     new_img = response.json()
     new_img = np.array(new_img, dtype='uint8')

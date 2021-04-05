@@ -67,7 +67,12 @@
 
            body {
                background-color: black;
+               color: white;
+               font-family: 'Montserrat', sans-serif;
+
            }
+
+
         a {
             text-decoration: none;
         }
@@ -242,6 +247,71 @@
         /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
         .show {display:block;}
 
+        .input-image-box {
+            width: 50vh;
+            height: 50vh;
+            position: fixed;
+        }
+
+        .input-image-box img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .visualization-container {
+            width: 50vh;
+            height: 50vh;
+            position: fixed;
+            left: 125vh;
+        }
+
+        .visualization-container img {
+            height: 100%;
+            width: 100%;
+        }
+
+        .files-list {
+            background-color: #2e2e31;
+            position: fixed;
+            left: 68vh;
+            top: 35vh;
+            width: 45vh;
+            height: 30vh;
+            border-radius: 5px;
+        }
+
+        .form-group {
+
+        }
+
+
+
+
+
+        .btn-primary {
+            background-color: black;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            width: 20vh;
+            position: fixed;
+            top: 45vh;
+            left: 80vh;
+            height: 5vh;
+            border-radius: 20px;
+        }
+
+
+
+        .custom-file-input {
+            color: white;
+            width: 200vh;
+            position: fixed;
+            left: 79vh;
+            top: 40vh;
+            height: 5vh;
+        }
+
+
     </style>
 
 </head>
@@ -261,9 +331,40 @@
             <img src="{{url_for('static', filename='images/logotet.png')}}" loading = "lazy" width="44px" height="44px" sizes="(max-width: 767px) 44vw, 240px" >
             <img src="{{url_for('static', filename='images/search_white_24dp.svg')}}" loading = "lazy" width="30px" height="30px" sizes="(max-width: 767px) 44vw, 240px" class = "searchZZ">
    </div>
-
     <div class="workingspace">
-        <img src=""
+        <div class="right-pane-content-container-analyze">
+                <div class="files-list">
+                    <form  method="POST" enctype="multipart/form-data">
+
+                    <div class="form-group">
+
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="image" id="image">
+
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Upload</button>
+
+                  </form>
+
+                </div>
+
+         <div class="input-image-box" >
+                        <img src="{{original_image}}" align="middle" id="original_image"/>
+                    </div>
+
+                <div class="visualization-container">
+<!--                    <img src="show_prediction" width="100%" alt="prediction not available" id="show_prediction"/>-->
+                    <img src="{{show_prediction}}" align="middle" />
+                </div>
+
+
+
+
+
+            </div>
+
     </div>
 
 

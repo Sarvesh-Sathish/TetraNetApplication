@@ -9,7 +9,10 @@ import requests
 import azure_get_atmosphere
 import firespread
 import io
-
+from tempfile import NamedTemporaryFile
+from shutil import copyfileobj
+from os import remove
+import time
 
 
 video = cv2.VideoCapture(0)
@@ -18,6 +21,8 @@ app.config['IMAGE_UPLOADS'] = 'images'
 print(os.listdir('uploads/images'))
 response = requests.get('http://67515655-f00a-44a0-a447-22a76351d991.eastus.azurecontainer.io/score')
 print('response', response.json())
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # arr = firespread.img_dir_to_arr('uploads/images/test.png')
 # print(arr)
@@ -37,7 +42,7 @@ def gen_frames():
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 def save_img(image_obj):
-    ORIGINAL_IMAGE_DIR = 'static/images/uploads/original_img.png'
+    ORIGINAL_IMAGE_DIR = 'static/images/uploads/img_file_orig.png'
     image_obj.save(ORIGINAL_IMAGE_DIR)
     return ORIGINAL_IMAGE_DIR
 
@@ -54,12 +59,12 @@ def get_img_shape(img_dir):
     img = asarray(img)
     return img.shape
 
-def get_prediction_frame(mask_obj_arr):
-    mask_obj_arr = np.array(mask_obj_arr)
-    ret, mask_encoded = cv2.imencode('.jpg', mask_obj_arr)
-    mask_encoded = mask_encoded.tobytes()
-    return (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + mask_encoded + b'\r\n')
+@app.route('/original_image')
+def getImgFile(image):
+    img_io = io.StringIO()
+    img = Image.open(image)
+    img = img.save('static/images/uploads/ok.png')
+    return send_file(img_io, mimetype='image/png')
 
 
 
@@ -68,17 +73,10 @@ def home():
     print('hi')
     return render_template("index.html")
 
-@app.route('/show_prediction')
-def show_prediction(mask_obj_arr):
-    return Response(get_prediction_frame(mask_obj_arr), mimetype='image/png; boundary=frame')
-
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/original_image')
-def original_image():
-    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/another_page.html', methods=['GET', 'POST'])
 def another_page():
@@ -95,10 +93,16 @@ def another_page():
             print(shape)
             # now we will also get the segmentation mask for the original image
             mask = get_mask(saved_dir)
-            show_prediction(mask)
             mask_dir = save_mask(mask, shape)
+            getImgFile(image)
+            time.sleep(5)
 
-    return render_template('another_page.html', original_image=saved_dir)
+            # since the saved directory names will always be the same,
+            saved_dir = 'static/images/uploads/img_file_orig.png'
+            mask_dir = 'static/images/uploads/mask.png'
+            print(saved_dir)
+
+    return render_template('another_page.html',original_image=saved_dir, show_prediction=mask_dir)
 
 
 
